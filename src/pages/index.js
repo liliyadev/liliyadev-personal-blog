@@ -5,21 +5,35 @@ import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
+import React, { useEffect } from "react"
 import { Helmet } from "react-helmet"
-import { useEffect } from "react"
 
-useEffect(() => {
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/"
-        })
-      }
-    })
-    window.netlifyIdentity.init()
-  }
-}, [])
+export default function HomePage() {
+  useEffect(() => {
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/"
+          })
+        }
+      })
+      window.netlifyIdentity.init()
+    }
+  }, [])
+
+  return (
+    <>
+      <Helmet>
+        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+      </Helmet>
+      <main>
+        <h1>Welcome to Gatsby!</h1>
+        {/* Your homepage content */}
+      </main>
+    </>
+  )
+}
 
 
 const links = [
