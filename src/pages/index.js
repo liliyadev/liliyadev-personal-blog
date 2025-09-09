@@ -78,16 +78,17 @@ const IndexPage = ({ data }) => {
 <div style={{ marginBottom: "2rem" }}>
   <h2>Latest Blog Posts</h2>
   {data.allMarkdownRemark.nodes.map(post => (
-    <article key={post.frontmatter.slug} style={{ marginBottom: "1.5rem" }}>
-      <h3>
-        <Link to={`/blog/${post.frontmatter.slug}`}>
-          {post.frontmatter.title}
-        </Link>
-      </h3>
-      <p>{post.frontmatter.date}</p>
-      <p>{post.excerpt}</p>
-    </article>
-  ))}
+  <article key={post.frontmatter.slug} style={{ marginBottom: "1.5rem" }}>
+    <h3>
+      <Link to={`/blog/${post.frontmatter.slug}`}>
+        {post.frontmatter.title}
+      </Link>
+    </h3>
+    <p>{post.frontmatter.date}</p>
+    <p>{post.excerpt}</p>
+  </article>
+))}
+
 </div>
 
       <div className={styles.textCenter}>
