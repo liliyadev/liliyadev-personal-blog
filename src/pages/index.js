@@ -95,7 +95,6 @@ const IndexPage = () => (
         Edit <code>src/pages/index.js</code> to update this page.
       </p>
     </div>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <ul className={styles.list}>
       {links.map(link => (
         <li key={link.url} className={styles.listItem}>
