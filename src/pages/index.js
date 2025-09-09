@@ -8,6 +8,7 @@ import { Helmet } from "react-helmet"
 
 const IndexPage = () => {
   useEffect(() => {
+  const interval = setInterval(() => {
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
         if (!user) {
@@ -17,8 +18,11 @@ const IndexPage = () => {
         }
       })
       window.netlifyIdentity.init()
+      clearInterval(interval)
     }
-  }, [])
+  }, 500)
+}, [])
+
 
   const links = [
     {
@@ -52,15 +56,18 @@ const IndexPage = () => {
       </Helmet>
 
       <button
-        className={styles.loginButton}
-        onClick={() => {
-          if (window.netlifyIdentity) {
-            window.netlifyIdentity.open()
-          }
-        }}
-      >
-        Login
-      </button>
+  style={{ margin: "1rem", padding: "0.5rem 1rem", fontSize: "1rem" }}
+  onClick={() => {
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.open()
+    } else {
+      console.warn("Netlify Identity not loaded")
+    }
+  }}
+>
+  Login
+</button>
+
 
       <div className={styles.textCenter}>
         <StaticImage
@@ -110,5 +117,11 @@ const IndexPage = () => {
   )
 }
 
-export const Head = () => <Seo title="Home" />
+export const Head = () => (
+  <>
+    <Seo title="Home" />
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </>
+)
+
 export default IndexPage
