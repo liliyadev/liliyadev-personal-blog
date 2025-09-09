@@ -1,4 +1,5 @@
-const netlifyAdapter = require("gatsby-adapter-netlify")
+const { adapter } = require("gatsby-adapter-netlify")
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Blog Theme Starter`,
@@ -52,5 +53,5 @@ module.exports = {
       },
     },
   ],
-  adapter: netlifyAdapter(),
+  adapter,
 }
