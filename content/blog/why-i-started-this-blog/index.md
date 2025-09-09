@@ -1,11 +1,9 @@
 ---
 title: "Why I Started This Blog"
 date: "2025-09-09"
-tags: ["intro"]
+tags: ["intro", "personal"]
 slug: "why-i-started-this-blog"
 image: ./flowers.jpg
-tags:
-  - intro
 ---
 ![](/flowers.jpg)
 I’ve always believed that creativity thrives when it’s shared. For a long time, I’ve been quietly building, learning, and experimenting—whether it’s with code, design, or ideas. But I realized: what’s the point of creating if it never sees the light of day?
