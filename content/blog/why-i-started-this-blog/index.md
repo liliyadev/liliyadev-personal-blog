@@ -1,7 +1,9 @@
 ---
-title: Why I Started This Blog
-author: Liliya
-date: 2025-09-09T15:49:51
+title: "Why I Started This Blog"
+date: "2025-09-09"
+tags: ["intro"]
+slug: "why-i-started-this-blog"
+image: ./flowers.jpg
 tags:
   - intro
 ---
