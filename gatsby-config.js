@@ -51,5 +51,7 @@ module.exports = {
       },
     },
   ],
-  adapter: require("gatsby-adapter-netlify"),
+  adapter: {
+  name: "gatsby-adapter-netlify",
+}
 }
