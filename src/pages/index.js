@@ -20,9 +20,29 @@ const IndexPage = () => {
     }
   }, [])
 
-  const links = [ /* ... your links array ... */ ]
-  const samplePageLinks = [ /* ... your samplePageLinks array ... */ ]
-  const moreLinks = [ /* ... your moreLinks array ... */ ]
+  const links = [
+    {
+      text: "Tutorial",
+      url: "https://www.gatsbyjs.com/docs/tutorial",
+      description: "A great place to get started with Gatsby.",
+    },
+    {
+      text: "Examples",
+      url: "https://github.com/gatsbyjs/gatsby/tree/master/examples",
+      description: "Real-world Gatsby site examples.",
+    },
+  ]
+
+  const samplePageLinks = [
+    { text: "Page 2", url: "page-2" },
+    { text: "TypeScript", url: "using-typescript" },
+  ]
+
+  const moreLinks = [
+    { text: "Documentation", url: "https://gatsbyjs.com/docs/" },
+    { text: "Starters", url: "https://gatsbyjs.com/starters/" },
+  ]
+
   const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
 
   return (
@@ -30,6 +50,18 @@ const IndexPage = () => {
       <Helmet>
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Helmet>
+
+      <button
+        className={styles.loginButton}
+        onClick={() => {
+          if (window.netlifyIdentity) {
+            window.netlifyIdentity.open()
+          }
+        }}
+      >
+        Login
+      </button>
+
       <div className={styles.textCenter}>
         <StaticImage
           src="../images/example.png"
@@ -53,6 +85,7 @@ const IndexPage = () => {
           Edit <code>src/pages/index.js</code> to update this page.
         </p>
       </div>
+
       <ul className={styles.list}>
         {links.map(link => (
           <li key={link.url} className={styles.listItem}>
@@ -66,6 +99,7 @@ const IndexPage = () => {
           </li>
         ))}
       </ul>
+
       {moreLinks.map((link, i) => (
         <React.Fragment key={link.url}>
           <a href={`${link.url}${utmParameters}`}>{link.text}</a>
