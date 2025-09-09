@@ -6,7 +6,22 @@ import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
 import { Helmet } from "react-helmet"
 
-const IndexPage = () => {
+export const query = graphql`
+  {
+    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
+      nodes {
+        frontmatter {
+          title
+          slug
+          date(formatString: "MMMM D, YYYY")
+        }
+        excerpt
+      }
+    }
+  }
+`
+
+const IndexPage = ({ data }) => {
   useEffect(() => {
   if (window.netlifyIdentity) {
     window.netlifyIdentity.init()
@@ -60,7 +75,20 @@ const IndexPage = () => {
 >
   Login
 </button>
-
+<div style={{ marginBottom: "2rem" }}>
+  <h2>Latest Blog Posts</h2>
+  {data.allMarkdownRemark.nodes.map(post => (
+    <article key={post.frontmatter.slug} style={{ marginBottom: "1.5rem" }}>
+      <h3>
+        <Link to={`/blog/${post.frontmatter.slug}`}>
+          {post.frontmatter.title}
+        </Link>
+      </h3>
+      <p>{post.frontmatter.date}</p>
+      <p>{post.excerpt}</p>
+    </article>
+  ))}
+</div>
 
       <div className={styles.textCenter}>
         <StaticImage
