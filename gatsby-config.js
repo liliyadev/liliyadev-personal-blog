@@ -1,12 +1,3 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
- */
-
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
 module.exports = {
   siteMetadata: {
     title: `Gatsby Blog Theme Starter`,
@@ -31,7 +22,7 @@ module.exports = {
     },
     `gatsby-plugin-image`,
     `gatsby-plugin-react-helmet`,
-    'gatsby-plugin-static-cms',
+    `gatsby-plugin-static-cms`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -48,27 +39,21 @@ module.exports = {
         short_name: `starter`,
         start_url: `/`,
         background_color: `#663399`,
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/gatsby-icon.png`,
       },
     },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "images",
-        path: `${__dirname}/src/images`,
-      },
-    },
-    // add this config for our blog folder
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
         name: `blog`,
       },
+    },
+  ],
+  adapters: [
+    {
+      name: "gatsby-adapter-netlify",
     },
   ],
 }
