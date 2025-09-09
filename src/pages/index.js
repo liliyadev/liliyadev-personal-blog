@@ -8,19 +8,12 @@ import { Helmet } from "react-helmet"
 
 const IndexPage = () => {
   useEffect(() => {
-  const interval = setInterval(() => {
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/"
-          })
-        }
-      })
-      window.netlifyIdentity.init()
-      clearInterval(interval)
-    }
-  }, 500)
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.init()
+    window.netlifyIdentity.on("login", () => {
+      document.location.href = "/admin/"
+    })
+  }
 }, [])
 
 
