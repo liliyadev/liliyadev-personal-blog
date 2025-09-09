@@ -5,6 +5,22 @@ import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
+import { Helmet } from "react-helmet"
+import { useEffect } from "react"
+
+useEffect(() => {
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/"
+        })
+      }
+    })
+    window.netlifyIdentity.init()
+  }
+}, [])
+
 
 const links = [
   {
@@ -95,6 +111,9 @@ const IndexPage = () => (
         Edit <code>src/pages/index.js</code> to update this page.
       </p>
     </div>
+    <Helmet>
+      <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    </Helmet>
     <ul className={styles.list}>
       {links.map(link => (
         <li key={link.url} className={styles.listItem}>
