@@ -1,9 +1,7 @@
 import React, { useEffect } from "react"
 import { Link, graphql } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import * as styles from "../components/index.module.css"
 import { Helmet } from "react-helmet"
 
 export const query = graphql`
@@ -14,6 +12,7 @@ export const query = graphql`
           title
           slug
           date(formatString: "MMMM D, YYYY")
+          tags
         }
         excerpt
       }
@@ -23,39 +22,13 @@ export const query = graphql`
 
 const IndexPage = ({ data }) => {
   useEffect(() => {
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.init()
-    window.netlifyIdentity.on("login", () => {
-      document.location.href = "/admin/"
-    })
-  }
-}, [])
-
-
-  const links = [
-    {
-      text: "Tutorial",
-      url: "https://www.gatsbyjs.com/docs/tutorial",
-      description: "A great place to get started with Gatsby.",
-    },
-    {
-      text: "Examples",
-      url: "https://github.com/gatsbyjs/gatsby/tree/master/examples",
-      description: "Real-world Gatsby site examples.",
-    },
-  ]
-
-  const samplePageLinks = [
-    { text: "Page 2", url: "page-2" },
-    { text: "TypeScript", url: "using-typescript" },
-  ]
-
-  const moreLinks = [
-    { text: "Documentation", url: "https://gatsbyjs.com/docs/" },
-    { text: "Starters", url: "https://gatsbyjs.com/starters/" },
-  ]
-
-  const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.init()
+      window.netlifyIdentity.on("login", () => {
+        document.location.href = "/admin/"
+      })
+    }
+  }, [])
 
   return (
     <Layout>
@@ -63,78 +36,61 @@ const IndexPage = ({ data }) => {
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Helmet>
 
-      <button
-  style={{ margin: "1rem", padding: "0.5rem 1rem", fontSize: "1rem" }}
-  onClick={() => {
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.open()
-    } else {
-      console.warn("Netlify Identity not loaded")
-    }
-  }}
->
-  Login
-</button>
-<div style={{ marginBottom: "2rem" }}>
-  <h2>Latest Blog Posts</h2>
-  {data.allMarkdownRemark.nodes.map(post => (
-  <article key={post.frontmatter.slug} style={{ marginBottom: "1.5rem" }}>
-    <h3>
-      <Link to={`/blog/${post.frontmatter.slug}`}>
-        {post.frontmatter.title}
-      </Link>
-    </h3>
-    <p>{post.frontmatter.date}</p>
-    <p>{post.excerpt}</p>
-  </article>
-))}
+      {/* Header */}
+      <header className="flex items-center justify-between px-6 py-4 bg-purple-50 shadow-md">
+        <div className="text-xl font-bold text-purple-700">
+          <Link to="/">LiliyaDev</Link>
+        </div>
+        <button
+          className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700"
+          onClick={() => {
+            if (window.netlifyIdentity) {
+              window.netlifyIdentity.open()
+            } else {
+              console.warn("Netlify Identity not loaded")
+            }
+          }}
+        >
+          Login
+        </button>
+      </header>
 
-</div>
-
-      <div className={styles.textCenter}>
-        <StaticImage
-          src="../images/example.png"
-          loading="eager"
-          width={64}
-          quality={95}
-          formats={["auto", "webp", "avif"]}
-          alt=""
-          style={{ marginBottom: `var(--space-3)` }}
-        />
-        <h1>Welcome to <b>Gatsby!</b></h1>
-        <p className={styles.intro}>
-          <b>Example pages:</b>{" "}
-          {samplePageLinks.map((link, i) => (
-            <React.Fragment key={link.url}>
-              <Link to={link.url}>{link.text}</Link>
-              {i !== samplePageLinks.length - 1 && <> · </>}
-            </React.Fragment>
-          ))}
-          <br />
-          Edit <code>src/pages/index.js</code> to update this page.
-        </p>
-      </div>
-
-      <ul className={styles.list}>
-        {links.map(link => (
-          <li key={link.url} className={styles.listItem}>
-            <a
-              className={styles.listItemLink}
-              href={`${link.url}${utmParameters}`}
+      {/* Main Content */}
+      <main className="px-6 py-8 bg-white">
+        <h2 className="text-2xl font-bold mb-6 text-purple-800">Latest Blog Posts</h2>
+        {data.allMarkdownRemark.nodes.map(post => (
+          <article key={post.frontmatter.slug} className="bg-gray-50 p-6 rounded-lg shadow mb-6">
+            <img
+              src={`/content/blog/${post.frontmatter.slug}/cover.jpg`}
+              alt={post.frontmatter.title}
+              className="w-full h-auto rounded-md mb-4"
+            />
+            <h3 className="text-xl font-semibold text-purple-700">
+              <Link to={`/blog/${post.frontmatter.slug}`}>{post.frontmatter.title}</Link>
+            </h3>
+            <p className="text-sm text-gray-500">{post.frontmatter.date}</p>
+            <p className="mt-2 text-gray-700">{post.excerpt}</p>
+            <div className="flex gap-2 mt-2">
+              {post.frontmatter.tags?.map(tag => (
+                <span key={tag} className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">
+                  #{tag}
+                </span>
+              ))}
+            </div>
+            <Link
+              to={`/blog/${post.frontmatter.slug}`}
+              className="text-blue-600 hover:underline font-medium mt-2 block"
             >
-              {link.text} ↗
-            </a>
-            <p className={styles.listItemDescription}>{link.description}</p>
-          </li>
+              Read more →
+            </Link>
+          </article>
         ))}
-      </ul>
+      </main>
 
-      {moreLinks.map((link, i) => (
-        <React.Fragment key={link.url}>
-          <a href={`${link.url}${utmParameters}`}>{link.text}</a>
-          {i !== moreLinks.length - 1 && <> · </>}
-        </React.Fragment>
-      ))}
+      {/* Footer */}
+      <footer className="text-center py-4 bg-purple-50 text-gray-600 text-sm">
+        © {new Date().getFullYear()} · Built by Liliya Vildanova
+      </footer>
     </Layout>
   )
 }
