@@ -7,7 +7,6 @@ module.exports = {
     author: `@gatsbyjs`,
     siteUrl: `https://gatsby-blog-theme-starter.netlify.app/`,
   },
-  plugins: ["gatsby-plugin-postcss"],
   plugins: [
     {
       resolve: `gatsby-transformer-remark`,
