@@ -2,8 +2,6 @@ import React, { useEffect } from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import Header from "../components/header"
-import Footer from "../components/footer"
 import { Helmet } from "react-helmet"
 
 export const query = graphql`
@@ -38,8 +36,6 @@ const IndexPage = ({ data }) => {
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Helmet>
 
-      <Header />
-
       <main className="px-6 py-8 bg-white">
         <h2 className="text-2xl font-bold mb-6 text-purple-800">Latest Blog Posts</h2>
         {data.allMarkdownRemark.nodes.map(post => (
@@ -70,8 +66,6 @@ const IndexPage = ({ data }) => {
           </article>
         ))}
       </main>
-
-      <Footer />
     </Layout>
   )
 }
