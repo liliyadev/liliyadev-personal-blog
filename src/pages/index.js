@@ -2,6 +2,8 @@ import React, { useEffect } from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Header from "../components/Header"
+import Footer from "../components/Footer"
 import { Helmet } from "react-helmet"
 
 export const query = graphql`
@@ -36,26 +38,8 @@ const IndexPage = ({ data }) => {
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Helmet>
 
-      {/* Header */}
-      <header className="flex items-center justify-between px-6 py-4 bg-purple-50 shadow-md">
-        <div className="text-xl font-bold text-purple-700">
-          <Link to="/">LiliyaDev</Link>
-        </div>
-        <button
-          className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700"
-          onClick={() => {
-            if (window.netlifyIdentity) {
-              window.netlifyIdentity.open()
-            } else {
-              console.warn("Netlify Identity not loaded")
-            }
-          }}
-        >
-          Login
-        </button>
-      </header>
+      <Header />
 
-      {/* Main Content */}
       <main className="px-6 py-8 bg-white">
         <h2 className="text-2xl font-bold mb-6 text-purple-800">Latest Blog Posts</h2>
         {data.allMarkdownRemark.nodes.map(post => (
@@ -87,10 +71,7 @@ const IndexPage = ({ data }) => {
         ))}
       </main>
 
-      {/* Footer */}
-      <footer className="text-center py-4 bg-purple-50 text-gray-600 text-sm">
-        © {new Date().getFullYear()} · Built by Liliya Vildanova
-      </footer>
+      <Footer />
     </Layout>
   )
 }
