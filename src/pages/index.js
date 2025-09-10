@@ -2,8 +2,8 @@ import React, { useEffect } from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import Header from "../components/Header"
-import Footer from "../components/Footer"
+import Header from "../components/header"
+import Footer from "../components/footer"
 import { Helmet } from "react-helmet"
 
 export const query = graphql`
