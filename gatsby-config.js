@@ -47,6 +47,19 @@ module.exports = {
       },
     },
     {
+  resolve: `gatsby-plugin-manifest`,
+  options: {
+    name: `LiliyaDev`,
+    short_name: `LiliyaDev`,
+    start_url: `/`,
+    background_color: `#ffffff`,
+    theme_color: `#38a169`, // Tailwind green-600
+    display: `minimal-ui`,
+    icon: `static/images/Logo LV.png`, // 
+  },
+},
+
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
