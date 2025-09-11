@@ -17,4 +17,4 @@ _This is italic text_
 
 This is a regular paragraph. It may include inline code `console.log("Hello, World!");` and links [Visit Google](https://www.google.com).
 
-![Image Alt Text](./cover.jpg)
+

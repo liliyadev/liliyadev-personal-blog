@@ -68,7 +68,7 @@ const IndexPage = ({ data }) => {
   </div>
   <Link
     to={`/blog/${post.frontmatter.slug}`}
-    className="text-blue-600 hover:underline font-medium mt-2 block"
+    className="text-green-700 hover:underline font-medium mt-2 block"
   >
     Read more →
   </Link>
