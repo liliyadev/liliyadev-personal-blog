@@ -42,10 +42,18 @@ const Header = () => {
 
         {/* Desktop Links */}
         <div className="hidden md:flex space-x-6 items-center text-base font-medium pr-24">
-          <Link to="/" className="text-2xl text-gray-200 dark:text-gray-100 hover:text-indigo-600 transition">Home</Link>
-          <Link to="/page-2" className="text-2xl text-gray-200 dark:text-gray-100 hover:text-indigo-600 transition">Page 2</Link>
-          <a href="#projects" className="text-2xl text-gray-200 dark:text-gray-100 hover:text-indigo-600 transition">Projects</a>
-          <a href="#contact" className="text-2xl text-gray-200 dark:text-gray-100 hover:text-indigo-600 transition">Contact</a>
+           <button
+        className="bg-white text-blue-700 font-semibold px-4 py-2 rounded hover:bg-blue-100 transition"
+        onClick={() => {
+          if (window.netlifyIdentity) {
+            window.netlifyIdentity.open()
+          } else {
+            console.warn("Netlify Identity not loaded")
+          }
+        }}
+      >
+        Login
+      </button>
 
           {/* 🌙 Dark Mode Toggle */}
           <button
