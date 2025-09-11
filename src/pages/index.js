@@ -54,9 +54,14 @@ const IndexPage = ({ data }) => {
       className="rounded-md mb-4"
     />
   )}
-  <h3 className="text-xl font-semibold text-green-700">
-    <Link to={`/blog/${post.frontmatter.slug}`}>{post.frontmatter.title}</Link>
-  </h3>
+  <h3 className="text-xl font-semibold">
+  <Link
+    to={`/blog/${post.frontmatter.slug}`}
+    className="text-green-700 hover:text-green-800 visited:text-green-700"
+  >
+    {post.frontmatter.title}
+  </Link>
+</h3>
   <p className="text-sm text-gray-500">{post.frontmatter.date}</p>
   <p className="mt-2 text-gray-700">{post.excerpt}</p>
   <div className="flex gap-2 mt-2">
