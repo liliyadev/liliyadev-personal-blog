@@ -30,7 +30,7 @@
 }
 
 .listItem:nth-child(4)::marker {
-  color: #663399;
+  color: #2563eb;
 }
 
 .listItemLink {

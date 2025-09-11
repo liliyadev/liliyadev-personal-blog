@@ -3,10 +3,13 @@ import { Link } from "gatsby"
 
 const Header = () => (
   <header className="bg-blue-600 text-white shadow-md">
-    <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <Link to="/" className="text-2xl font-bold tracking-tight hover:opacity-90">
-        LiliyaDev
-      </Link>
+   <Link to="/" className="hover:opacity-90">
+  <img
+    src="/images/Logo LV.png"
+    alt="LiliyaDev Logo"
+    className="h-10 w-auto"
+  />
+</Link>
       <button
         className="bg-white text-blue-700 font-semibold px-4 py-2 rounded hover:bg-blue-100 transition"
         onClick={() => {

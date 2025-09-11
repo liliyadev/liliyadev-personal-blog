@@ -44,7 +44,7 @@ const IndexPage = ({ data }) => {
       </Helmet>
 
       <main className="px-6 py-8 bg-white">
-        <h2 className="text-2xl font-bold mb-6 text-green-800">Latest Blog Posts</h2>
+        <h2 className="text-2xl font-bold mb-6 text-green-800">From My Desk</h2>
         {data.allMarkdownRemark.nodes.map(post => (
           <article key={post.frontmatter.slug} className="bg-gray-50 p-6 rounded-lg shadow mb-6">
   {post.frontmatter.cover?.childImageSharp && (
