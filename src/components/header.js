@@ -22,7 +22,6 @@ const Header = () => (
       >
         Login
       </button>
-    </div>
   </header>
 )
 
