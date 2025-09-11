@@ -36,7 +36,7 @@ const Header = () => {
           <StaticImage
           src="../images/Logo LV.png"
           alt="Liliya Dev Logo"
-          className="max-w-auto"
+          className="max-w-[150px]"
           />
         </Link>
 
