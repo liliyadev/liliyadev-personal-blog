@@ -43,7 +43,7 @@ const IndexPage = ({ data }) => {
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Helmet>
 
-      <main className="px-6 py-8 bg-white">
+      <main className="pt-24 px-6 py-8">
         <h2 className="text-2xl font-bold mb-6 text-green-800">From My Desk</h2>
         {data.allMarkdownRemark.nodes.map(post => (
           <article key={post.frontmatter.slug} className="bg-gray-50 p-6 rounded-lg shadow mb-6">
