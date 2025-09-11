@@ -67,4 +67,17 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
   }
 }
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  createTypes(`
+    type MarkdownRemarkFrontmatter {
+      title: String!
+      date: Date! @dateformat
+      slug: String!
+      author: String
+      tags: [String]
+      cover: File @fileByRelativePath
+    }
+  `)
+}
 
