@@ -2,6 +2,7 @@
 title: My Example Blog Post
 date: 2023-02-12
 slug: "my-example-blog-post"
+author: "Liliya"
 cover: "./cover.jpg"
 tags: ["info", "journey"]
 ---

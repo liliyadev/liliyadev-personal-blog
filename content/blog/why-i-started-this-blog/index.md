@@ -2,6 +2,7 @@
 title: "Why I Started This Blog"
 date: "2025-09-10"
 slug: "why-i-started-this-blog"
+author: "Liliya"
 cover: "./cover.jpg"
 tags: ["personal", "journey"]
 ---
