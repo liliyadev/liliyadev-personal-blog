@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { Link } from "gatsby"
 
 export const query = graphql`
   query($slug: String!) {
@@ -29,8 +30,8 @@ const BlogPost = ({ data }) => {
   return (
     <Layout>
       <Link
-          to={`/blog/${post.frontmatter.slug}`}
-    className="text-green-700 hover:underline font-medium mt-2 block"
+          to="/"
+          className="text-green-700 hover:underline font-medium mt-2 block"
         >
           ← To main page
         </Link>
