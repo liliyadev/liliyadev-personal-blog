@@ -8,18 +8,23 @@ module.exports = {
   theme: {
     extend: {
       typography: ({ theme }) => ({
-        invert: {
-          css: {
-            color: theme('colors.white'),
-            a: { color: theme('colors.indigo.300') },
-            strong: { color: theme('colors.white') },
-            h1: { color: theme('colors.white') },
-            h2: { color: theme('colors.white') },
-            h3: { color: theme('colors.white') },
-            code: { color: theme('colors.indigo.300') },
-          },
-        },
-      }),
+  invert: {
+    css: {
+      color: theme('colors.gray.100'), // ✅ base text color
+      a: { color: theme('colors.indigo.300') },
+      strong: { color: theme('colors.gray.100') },
+      h1: { color: theme('colors.gray.100') },
+      h2: { color: theme('colors.gray.100') },
+      h3: { color: theme('colors.gray.100') },
+      h4: { color: theme('colors.gray.100') },
+      code: { color: theme('colors.indigo.300') },
+      blockquote: { color: theme('colors.gray.100') },
+      p: { color: theme('colors.gray.100') },
+      li: { color: theme('colors.gray.100') },
+    },
+  },
+}),
+
     },
   },
   plugins: [require('@tailwindcss/typography')],

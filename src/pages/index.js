@@ -43,10 +43,10 @@ const IndexPage = ({ data }) => {
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Helmet>
 
-      <main className="pt-24 px-6 py-8">
+      <main className="pt-24 px-6 py-8 bg-white dark:bg-gray-900 text-gray-800 dark:text-white transition-colors duration-300">
         <h2 className="text-2xl font-bold mb-6 text-green-800">From My Desk</h2>
         {data.allMarkdownRemark.nodes.map(post => (
-          <article key={post.frontmatter.slug} className="bg-gray-50 p-6 rounded-lg shadow mb-6">
+          <article key={post.frontmatter.slug} className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow mb-6 transition-colors duration-300">
   {post.frontmatter.cover?.childImageSharp && (
     <GatsbyImage
       image={getImage(post.frontmatter.cover.childImageSharp)}
@@ -62,11 +62,11 @@ const IndexPage = ({ data }) => {
     {post.frontmatter.title}
   </Link>
 </h3>
-  <p className="text-sm text-gray-500">{post.frontmatter.date}</p>
-  <p className="mt-2 text-gray-700">{post.excerpt}</p>
+  <p className="text-sm text-gray-500 dark:text-gray-400">{post.frontmatter.date}</p>
+  <p className="mt-2 text-gray-mt-2 text-gray-700 dark:text-gray-200">{post.excerpt}</p>
   <div className="flex gap-2 mt-2">
     {post.frontmatter.tags?.map(tag => (
-      <span key={tag} className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">
+      <span key={tag} className="text-xs bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 px-2 py-1 rounded transition-colors duration-300">
         #{tag}
       </span>
     ))}
