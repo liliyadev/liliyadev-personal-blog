@@ -36,20 +36,21 @@ const BlogPost = ({ data }) => {
           ← To main page
         </Link>
       <Seo title={post.frontmatter.title} description={post.excerpt} />
-      <div className="px-6 py-8 max-w-3xl mx-auto">
+      <div className="pt-24 px-6 pb-8 max-w-3xl mx-auto">
         {image && (
           <GatsbyImage
             image={image}
             alt={post.frontmatter.title}
-            className="w-full h-auto rounded-md mb-6 pt-24"
+            className="w-full h-auto rounded-md mb-6"
           />
         )}
         <h1 className="text-3xl font-bold text-green-700 mb-2">{post.frontmatter.title}</h1>
         <p className="text-sm text-gray-500 mb-6">{post.frontmatter.date}</p>
         <div
-          className="prose prose-blue"
+          className="prose prose-blue dark:prose-invert"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
+
       </div>
     </Layout>
   )
