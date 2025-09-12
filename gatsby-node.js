@@ -54,19 +54,22 @@ exports.createPages = async ({ graphql, actions }) => {
 /**
  * @type {import('gatsby').GatsbyNode['onCreateNode']}
  */
-exports.onCreateNode = ({ node, actions, getNode }) => {
+exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = `/blog${createFilePath({ node, getNode })}`
+    const slug = node.frontmatter.slug
+      ? `/blog/${node.frontmatter.slug}`
+      : `/blog${createFilePath({ node, getNode })}`
 
     createNodeField({
       name: `slug`,
       node,
-      value,
+      value: slug,
     })
   }
 }
+
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
   createTypes(`
