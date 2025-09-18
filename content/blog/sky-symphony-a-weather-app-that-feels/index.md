@@ -1,5 +1,6 @@
 ---
 title: "Sky Symphony: A Weather App That Feels"
+<<<<<<< HEAD
 date: 2025-09-18T14:48:38
 slug: "sky-symphony-a-weather-app-that-feels"
 author: "Liliya"
@@ -7,6 +8,13 @@ cover: "./cover.jpg"
 tags: ["news", "journey"]
 ---
 
+=======
+author: Liliya
+date: 2025-09-18T14:48:38
+tags:
+  - news
+---
+>>>>>>> 2d1523cb82737d5986242513face83e3569f2ef0
 > “Forecasts with feeling—explore the sky’s mood in motion.”
 
 Sky Symphony isn’t just a weather app—it’s a design experiment in emotional data. Built with React, Tailwind CSS, and Plotly.js, it transforms raw weather metrics into a poetic, interactive experience. From glowing charts to animated cards, every element is crafted to feel like a living interface.
@@ -84,3 +92,9 @@ I’m planning to add:
 - Night mode synced with local sunset data
 - Blog integration via Contentful CMS
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 2d1523cb82737d5986242513face83e3569f2ef0
