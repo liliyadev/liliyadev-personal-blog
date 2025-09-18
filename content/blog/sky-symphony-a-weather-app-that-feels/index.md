@@ -1,10 +1,11 @@
 ---
-title: Sky Symphony: A Weather App That Feels
+title: "Sky Symphony: A Weather App That Feels"
 date: 2025-09-18
 slug: "sky-symphony-a-weather-app-that-feels"
 author: "Liliya"
 cover: "./cover.jpg"
-tags: ["news", "journey"]
+description: "A poetic, interactive weather app built with React, Tailwind, and Plotly."
+tags: ["weather", "react", "design", "dashboard"]
 ---
 > “Forecasts with feeling—explore the sky’s mood in motion.”
 
@@ -83,9 +84,3 @@ I’m planning to add:
 - Night mode synced with local sunset data
 - Blog integration via Contentful CMS
 
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> 2d1523cb82737d5986242513face83e3569f2ef0
